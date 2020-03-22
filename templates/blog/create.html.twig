@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block title %}Pompe Funebres Le Souvenir{% endblock %}
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid parallax-window" id="parallax" data-parallax="scroll" data-image-src="../../img/imgslider2.jpg" style="
+    height: 50em;
+    background-position-y: center;
+    font: -webkit-control;    background-repeat: no-repeat;
+    background-size: cover;
+    padding-right: 0px;
+    padding-left: 0px;">
+    </div>
+<div class="container" >
+{% if editMode %}
+    <h1>Modifier deces</h1>
+    {% else %}
+    <h1>Nouveau deces</h1>
+    {% endif %}
+    {{ form_start(formArticle) }}
+
+    {{ form_row(formArticle.title, {'attr' : {'placeholder': "Titre"}}) }}
+    {{ form_row(formArticle.content, {'attr' : {'placeholder': "Contenue"}}) }}
+    {{ form_row(formArticle.image, {'attr' : {'placeholder': "Image"}}) }}
+
+    <button type="submit" cless="btn btn-success">
+    {% if editMode %}
+    Enregistrer
+    {% else %}
+    Ajouter l'article
+    {% endif %}
+    </button>
+
+    {{ form_end(formArticle) }}
+
+    </div>
+{% endblock %}

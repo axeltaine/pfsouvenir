@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Pompe Funebres Le Souvenir{% endblock %}</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+        <link rel="stylesheet" href="https://bootswatch.com/4/lumen/bootstrap.min.css">
+        <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+        
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link href="{{ asset('/css/index.css') }}" rel="stylesheet">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body class="dark">
+    <div class="navigation-wrap bg-dark start-header start-style" style=" border-bottom-right-radius: 80px; border-bottom-left-radius: 80px;
+    ">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<nav class="navbar navbar-expand-md navbar-dark" >
+					
+						<a class="navbar-brand" href="/" style="color: white;">
+                            <img src="../img/OC1Y7T0test.png" width="30" height="30" class="d-inline-block" alt="" style="filter: invert(1);">
+                             Le Souvenir <br> Pompe Funebres - Marbrerie </a>	
+						
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav ml-auto py-4 py-md-0">
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 ">
+									<a class="nav-link" href="/">Accueil</a>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="{{path('blog')}}">Avis de décès</a>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="{{path('team')}}">Notre Equipe</a>
+								</li>
+								
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="{{path('galerie')}}">Galerie</a>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="{{path('contact')}}">Contact</a>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="{{path('create_deces')}}">Ajouter un décès</a>
+                                </li>
+							</ul>
+						</div>
+						
+					</nav>		
+				</div>
+			</div>
+		</div>
+	</div>
+        {% block body %}{% endblock %}
+         <a id="button" title="Haut de page" style="background-color: #2A2A2A;"></a>
+    <footer class="py-2 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Réalisation MR-REBOOT | © POMPES FUNÈBRES LE SOUVENIR 2020</p>
+        </div>
+    </footer>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <script src="{{ asset('js/parallax.js') }}"></script>
+    <script>
+        AOS.init();
+      </script>
+        <script>
+            var btn = $('#button');
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > 300) {
+                    btn.addClass('show');
+                } else {
+                    btn.removeClass('show');
+                }
+            });
+            btn.on('click', function (e) {
+                e.preventDefault();
+                $('html, body').animate({
+                    scrollTop: 2
+                }, '300');
+            });
+        </script>
+        <script>
+            (function($) { "use strict";
+            
+                $(function() {
+                    var header = $(".start-style");
+                    $(window).scroll(function() {    
+                        var scroll = $(window).scrollTop();
+                    
+                        if (scroll >= 10) {
+                            header.removeClass('start-style').addClass("scroll-on");
+                        } else {
+                            header.removeClass("scroll-on").addClass('start-style');
+                        }
+                    });
+                });		
+                    
+                //Animation
+                
+                $(document).ready(function() {
+                    $('body.hero-anime').removeClass('hero-anime');
+                });
+            
+                //Menu On Hover
+                    
+                $('body').on('mouseenter mouseleave','.nav-item',function(e){
+                        if ($(window).width() > 750) {
+                            var _d=$(e.target).closest('.nav-item');_d.addClass('show');
+                            setTimeout(function(){
+                            _d[_d.is(':hover')?'addClass':'removeClass']('show');
+                            },1);
+                        }
+                });	
+                
+                //Switch light/dark
+                
+                $("#switch").on('click', function () {
+                    if ($("body").hasClass("dark")) {
+                        $("body").removeClass("dark");
+                        $("#switch").removeClass("switched");
+                    }
+                    else {
+                        $("body").addClass("dark");
+                        $("#switch").addClass("switched");
+                    }
+                });  
+                
+              })(jQuery); </script>
+               <script>$(document).ready(function(){
+        $(".fancybox").fancybox({
+              openEffect: "none",
+              closeEffect: "none"
+          });
+          $(".zoom").hover(function(){
+              
+              $(this).addClass('transition');
+          }, function(){
+              
+              $(this).removeClass('transition');
+          });
+      });
+          </script>
+
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

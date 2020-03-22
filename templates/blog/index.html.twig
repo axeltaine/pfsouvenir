@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block title %}Pompe Funebres Le Souvenir{% endblock %}
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+   <div class="container-fluid parallax-window" id="parallax" data-parallax="scroll" data-image-src="img/imgslider2.jpg" style="
+    height: 50em;
+    background-position-y: center;
+    font: -webkit-control;    background-repeat: no-repeat;
+    background-size: cover;
+    padding-right: 0px;
+    padding-left: 0px;">
+    </div>
+    <div class="container marketing">
+      <div class="container" style="text-align: center; padding: 2em 4em 4em;" data-aos="flip-left"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000">
+        <h2 class="my-4" style="font-size: 3em;">Avis de décès</h2><hr>
+    </div>
+    
+      {% for article in articles %}
+
+      <hr class="featurette-divider">
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">{{ article.title }}</h2>
+          <p class="lead">{{ article.content }}</p>
+           <p><a class="btn btn-secondary" href="{{ path('blog_show', {'id': article.id })}}" role="button">Condoléances</a></p>
+            <p><a class="btn btn-secondary" href="{{ path('edit_deces', {'id': article.id })}}" role="button">Modifier»</a></p>
+        </div>
+        <div class="col-md-5">
+          <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="{{ article.image }}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" >
+          <p>publie le {{ article.createdAt | date('d/m/Y') }} a {{ article.createdAt | date('H:i') }} </p>
+        </div>
+      </div>
+      
+      {% endfor %}
+   
+    </div>
+{% endblock %}
