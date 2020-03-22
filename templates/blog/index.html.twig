@@ -27,7 +27,9 @@
           <h2 class="featurette-heading">{{ article.title }}</h2>
           <p class="lead">{{ article.content }}</p>
            <p><a class="btn btn-secondary" href="{{ path('blog_show', {'id': article.id })}}" role="button">Condoléances</a></p>
+           {% if app.user %}
             <p><a class="btn btn-secondary" href="{{ path('edit_deces', {'id': article.id })}}" role="button">Modifier»</a></p>
+            {% endif %}
         </div>
         <div class="col-md-5">
           <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="{{ article.image }}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" >

@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block body %}
+{% if app.user %}
 <div class="container-fluid parallax-window" id="parallax" data-parallax="scroll" data-image-src="../../img/imgslider2.jpg" style="
     height: 50em;
     background-position-y: center;
@@ -35,4 +36,5 @@
     {{ form_end(formArticle) }}
 
     </div>
+      {% endif %}
 {% endblock %}

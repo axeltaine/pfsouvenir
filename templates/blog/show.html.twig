@@ -33,7 +33,9 @@
                             <p class="float-left"><strong>{{comment.author}}</strong> (<small>{{comment.createdAt | date('d/m/Y') }} a {{ article.createdAt | date('H:i') }})</small></p>
                        <div class="clearfix"></div>
                         <p>{{comment.content}}</p>
+                        {% if app.user %}
                         <p><a class="btn btn-secondary" href="" role="button">supprimer</a></p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
