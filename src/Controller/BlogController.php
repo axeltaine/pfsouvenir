@@ -103,6 +103,17 @@ class BlogController extends Controller
             'commentForm' => $form->createView()
         ]);
     }
-   
+
+    /**
+     * @Route("/connexion", name="security_login")
+     */
+   public function login(){
+       return $this->render('blog/login.html.twig');
+   }
+
+   /**
+    * @Route("/deconnexion", name="security_logout")
+    */
+    public function logout() {}
 
 }
