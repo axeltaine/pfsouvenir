@@ -4,8 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Comment;
+use App\Entity\Contact;
 use App\Form\ArticleType;
 use App\Form\CommentType;
+use App\Form\ContactType;
+use App\Notification\ContactNotification;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,8 +33,20 @@ class BlogController extends Controller
     /**
      * @Route("/", name="home")
      */
-    public function home() {
-        return $this->render('blog/home.html.twig');
+    public function home(Request $request, ContactNotification $notification) {
+        $contact = new Contact ();
+        $form = $this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $notification->notify($contact);
+            $this->addFlash('success', 'Votre email a bien ete envoye');
+            return $this->redirectToRoute('blog/home.html.twig');
+        }
+
+        return $this->render('blog/home.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
      /**
      * @Route("/equipe", name="team")
@@ -48,8 +63,19 @@ class BlogController extends Controller
        /**
      * @Route("/contact", name="contact")
      */
-    public function contact() {
-        return $this->render('blog/contact.html.twig');
+    public function contact(Request $request) {
+        $contact = new Contact ();
+        $form = $this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $this->addFlash('success', 'Votre email a bien ete envoye');
+            return $this->redirectToRoute('blog/home.html.twig');
+        }
+        return $this->render('blog/contact.html.twig'
+        , [
+            'form' => $form->createView()
+        ]);
     }
      /**
      * @Route("/avis-de-deces/new", name="create_deces")
