@@ -41,7 +41,7 @@ class BlogController extends Controller
         if ($form->isSubmitted() && $form->isValid()){
             $notification->notify($contact);
             $this->addFlash('success', 'Votre email a bien ete envoye');
-            return $this->redirectToRoute('blog/home.html.twig');
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('blog/home.html.twig', [
@@ -63,14 +63,15 @@ class BlogController extends Controller
        /**
      * @Route("/contact", name="contact")
      */
-    public function contact(Request $request) {
+    public function contact(Request $request, ContactNotification $notification) {
         $contact = new Contact ();
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
+            $notification->notify($contact);
             $this->addFlash('success', 'Votre email a bien ete envoye');
-            return $this->redirectToRoute('blog/home.html.twig');
+            return $this->redirectToRoute('home');
         }
         return $this->render('blog/contact.html.twig'
         , [

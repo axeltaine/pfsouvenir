@@ -8,14 +8,14 @@ class Contact {
     /**
      * @var string|null
      * @Assert\NotBlank()
-     * @Assert\Lenght(min=2, max=100)
+     * @Assert\Length(min=2, max=100)
      */
     private $firstname;
 
      /**
      * @var string|null
      * @Assert\NotBlank()
-     * @Assert\Lenght(min=2, max=100)
+     * @Assert\Length(min=2, max=100)
      */
     private $lastname;
 
@@ -23,7 +23,8 @@ class Contact {
      * @var string|null
      * @Assert\NotBlank()
      * @Assert\Regex(
-     *  pattern="/[0-9]{10})/"
+     *  pattern="/[0-9]{10}/"
+     * )
      */
     private $phone;
 
@@ -37,7 +38,7 @@ class Contact {
      /**
      * @var string|null
      * @Assert\NotBlank()
-     * @Assert\Lenght(min=10)
+     * @Assert\Length(min=10)
      */
     private $message;
 
