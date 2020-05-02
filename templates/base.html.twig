@@ -6,10 +6,13 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
         <link rel="stylesheet" href="https://bootswatch.com/4/lumen/bootstrap.min.css">
         <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
-        
+        <link rel="icon" sizes="32x32" href="img/OC1Y7T0test.png">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link href="{{ asset('/css/index.css') }}" rel="stylesheet">
+        <meta name="description" content="Pompe Funebres Le Souvenir">
+        <meta name="author" content="mr-reboot">
+        <meta name="keywords" content="Le Souvenir, Pompe Funebres, site, ardennes, pompe funèbres dans les ardennes, marnes, reims, sedan, charlevilles, décès, Ardennes">
         {% block stylesheets %}{% endblock %}
     </head>
     <body class="dark">
@@ -20,7 +23,7 @@
 				<div class="col-12">
 					<nav class="navbar navbar-expand-md navbar-dark" >
 					
-						<a class="navbar-brand" href="/" style="color: white;">
+						<a class="navbar-brand" href="/" style="color: white; font-family: 'Amazone BT', arial; font-size: 2em;">
                             <img src="../img/OC1Y7T0test.png" width="30" height="30" class="d-inline-block" alt="" style="filter: invert(1);">
                              Le Souvenir <br> Pompe Funebres - Marbrerie </a>	
 						
@@ -35,6 +38,9 @@
 								</li>
 								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
 									<a class="nav-link" href="{{path('blog')}}">Avis de décès</a>
+								</li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link"  target="_blank" href="http://www.fape-obseques.com/les-solutions-en-contrats-assurance-prevoyance-proposeee-par-fape.html">Contrat obsèque</a>
 								</li>
 								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
 									<a class="nav-link" href="{{path('team')}}">Notre Equipe</a>
@@ -154,7 +160,12 @@
           });
       });
           </script>
-
+              <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.0.2/dist/simpleParallax.min.js"></script>
+      <script>var image = document.getElementsByClassName('thumbnail');
+new simpleParallax(image, {
+	delay: .6,
+	transition: 'cubic-bezier(0,0,0,1)'
+});</script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

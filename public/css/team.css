@@ -27,7 +27,7 @@ section .section-title {
 
 #team .card {
     border: none;
-    background: #ffffff;
+    background-color: #555 !important;
 }
 
 .image-flip:hover .backside,
@@ -109,13 +109,17 @@ section .section-title {
 
 .backside .card a {
     font-size: 18px;
-    color: #2A2A2A !important;
+    color: rgb(255, 255, 255) !important;
 }
 
 .frontside .card .card-title,
 .backside .card .card-title {
-    color: #2A2A2A !important;
+    color: rgb(255, 255, 255) !important;
 }
+.card-text {
+    color: rgb(255, 255, 255) !important;
+}
+
 
 .frontside .card .card-body img {
     width: 120px;

@@ -143,4 +143,47 @@ class BlogController extends Controller
     */
     public function logout() {}
 
+
+
+
+/**
+     * @Route("/obseques", name="obseques")
+     */
+
+    public function obseques() {
+        return $this->render('blog/obseques.html.twig');
+    }
+
+/**
+     * @Route("/transport", name="transport")
+     */
+
+    public function transport() {
+        return $this->render('blog/transport.html.twig');
+    }
+
+
+
+/**
+     * @Route("/administratives", name="administratives")
+     */
+
+    public function administratives() {
+        return $this->render('blog/administratives.html.twig');
+    }
+    /**
+     * @Route("/marbrerie", name="marbrerie")
+     */
+
+    public function marbrerie() {
+        return $this->render('blog/marbrerie.html.twig');
+    }
+   
+     /**
+     * @Route("/fournitures", name="fournitures")
+     */
+
+    public function fournitures() {
+        return $this->render('blog/fournitures.html.twig');
+    }
 }

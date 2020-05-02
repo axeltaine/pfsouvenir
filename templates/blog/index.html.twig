@@ -4,6 +4,9 @@
 {% endblock %}
 
 {% block body %}
+<style>
+  @import url(http://fr.allfont.net/allfont.css?fonts=amazone-bt);
+</style>
    <div class="container-fluid parallax-window" id="parallax" data-parallax="scroll" data-image-src="img/imgslider2.jpg" style="
     height: 50em;
     background-position-y: center;
@@ -23,8 +26,8 @@
 
       <hr class="featurette-divider">
       <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">{{ article.title }}</h2>
+        <div class="col-md-7" style="align-self: center;">
+          <h3 class="featurette-heading">{{ article.title }}</h3>
           <p class="lead">{{ article.content }}</p>
            <p><a class="btn btn-secondary" href="{{ path('blog_show', {'id': article.id })}}" role="button">Condoléances</a></p>
            {% if app.user %}
@@ -32,7 +35,9 @@
             {% endif %}
         </div>
         <div class="col-md-5">
-          <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="{{ article.image }}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" >
+          <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="{{ article.image }}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" style="border-top-left-radius: 80px;
+    border-bottom-right-radius: 80px;
+    border-bottom-left-radius: 80px;box-shadow:15px 15px 15px 0 rgba(0, 0, 0, 0.5);">
           <p>publie le {{ article.createdAt | date('d/m/Y') }} a {{ article.createdAt | date('H:i') }} </p>
         </div>
       </div>

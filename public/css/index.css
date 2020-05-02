@@ -61,7 +61,9 @@
 	background-position: center;
 }
  h2 {
-  font-size: 3em!important;
+  font-size: 5em!important;
+  
+	font-family: 'Amazone BT', arial;
  }
 p {
   font-size: 1.4em!important;
@@ -82,7 +84,7 @@ p {
 
 .carousel-caption{
   background-color: rgba(250, 248, 248, 0.87);
-  margin-bottom:25em;
+  margin-bottom:20em;
   margin-right:20em;
   margin-left:20em;
 }
@@ -115,7 +117,7 @@ p {
 .profile-pic {
     width: 200px !important;
     height: 200px;
-    box-shadow: 0px 4px 8px 0px #BDBDBD
+	box-shadow:15px 15px 15px 0 rgba(0, 0, 0, 0.5);
 }
 
 
@@ -181,7 +183,6 @@ p {
 .start-header {
 	opacity: 1;
 	transform: translateY(0);
-	padding: 10px 0;
 	box-shadow: 0 10px 30px 0 rgba(138, 155, 165, 0.15);
 	-webkit-transition : all 0.3s ease-out;
 	transition : all 0.3s ease-out;
@@ -193,7 +194,6 @@ p {
 	transition : all 0.3s ease-out;
 }
 .start-header.scroll-on .navbar-brand img{
-	height: 28px;
 	-webkit-transition : all 0.3s ease-out;
 	transition : all 0.3s ease-out;
 }
@@ -325,6 +325,7 @@ h1{
 	font-weight: 700;
 	color: #212112;
 	text-align: center;
+	font-family: 'Amazone BT', arial;
 }
 p{
 	text-align: center;
@@ -534,10 +535,13 @@ body.dark .bg-light {
 	background-color: #14151a !important;
 }
 body.dark .start-header {
-	box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.5);
+	
+	background-color: #383838a2 !important;
 }
 body.dark .start-header.scroll-on {
-	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.5);
+	background-color: #555  !important;
 }
 body.dark .nav-link{
 	color: #fff !important;
