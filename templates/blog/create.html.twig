@@ -4,6 +4,9 @@
 {% endblock %}
 
 {% block body %}
+<style>
+  @import url(http://fr.allfont.net/allfont.css?fonts=amazone-bt);
+</style>
 {% if app.user %}
 <div class="container-fluid parallax-window" id="parallax" data-parallax="scroll" data-image-src="../../img/imgslider2.jpg" style="
     height: 50em;
@@ -23,7 +26,7 @@
 
     {{ form_row(formArticle.title, {'attr' : {'placeholder': "Titre"}}) }}
     {{ form_row(formArticle.content, {'attr' : {'placeholder': "Contenue"}}) }}
-    {{ form_row(formArticle.image, {'attr' : {'placeholder': "Image"}}) }}
+    {{ form_row(formArticle.image, {'attr' : {'type': 'file'}}) }}
 
     <button type="submit" cless="btn btn-success">
     {% if editMode %}

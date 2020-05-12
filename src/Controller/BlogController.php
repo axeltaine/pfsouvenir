@@ -8,14 +8,15 @@ use App\Entity\Contact;
 use App\Form\ArticleType;
 use App\Form\CommentType;
 use App\Form\ContactType;
-use App\Notification\ContactNotification;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Notification\ContactNotification;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class BlogController extends Controller
+class BlogController extends AbstractController
 {
     /**
      * @Route("/avis-de-deces", name="blog")
@@ -80,7 +81,7 @@ class BlogController extends Controller
     }
      /**
      * @Route("/avis-de-deces/new", name="create_deces")
-     * * @Route("/avis-de-deces/{id}/edit", name="edit_deces")
+    * @Route("/avis-de-deces/{id}/edit", name="edit_deces")
      */
     public function create(Article $article = null, Request $request, EntityManagerInterface $entityManager) {
         if(!$article){
@@ -91,16 +92,25 @@ class BlogController extends Controller
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
+            $uploadedFile = $form['image']->getData();
+            if ($uploadedFile) {
+                $destination = $this->getParameter('kernel.project_dir').'/public/img/';
+                $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
+                $uploadedFile->move(
+                    $destination,
+                    $newFilename
+                );
             if(!$article->getId()){
                 $article->setCreatedAt(new \DateTime());
             }
             
-
+            $article->setImage($newFilename);
             $entityManager->persist($article);
             $entityManager->flush();
 
             return $this->redirectToRoute('blog_show', ['id' => $article->getId()]);
-        }
+        }}
 
         return $this->render('blog/create.html.twig', [
             'formArticle' => $form->createView(),
@@ -108,6 +118,8 @@ class BlogController extends Controller
         ]);
     }
 
+
+  
     /**
      * @Route("/avis-de-deces/{id}", name="blog_show")
      */
@@ -186,4 +198,34 @@ class BlogController extends Controller
     public function fournitures() {
         return $this->render('blog/fournitures.html.twig');
     }
+
+    /**
+     * @Route("/delete/{id}" , name="delete")
+     * @Method({"DELETE"})
+     */
+    public function delete(Comment $comment, EntityManagerInterface $entityManager) {
+        $entityManager -> remove($comment);
+        
+        $entityManager->flush();
+        $this->addFlash('success', "ok");
+        return $this->redirectToRoute('blog');
+      }
+
+      /**
+     * @Route("/avis-de-deces/delete/{id}" , name="delete_article")
+     * @Method({"DELETE"})
+     */
+    public function deletearticle (Article $article, Request $request, EntityManagerInterface $entityManager, $id) {
+        $article = $this->getDoctrine()->getRepository(article::class)->find($id);
+        $entityManager = $this->getDoctrine()->getManager();
+        foreach($article->getComments() as $comments){
+            $entityManager->remove($comments);
+        }
+
+        $entityManager->remove($article);
+        
+        $entityManager->flush();
+        $this->addFlash('success', "ok");
+        return $this->redirectToRoute('blog');
+      }
 }

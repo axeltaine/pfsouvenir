@@ -4,6 +4,9 @@
 {% endblock %}
 
 {% block body %}
+<style>
+  @import url(http://fr.allfont.net/allfont.css?fonts=amazone-bt);
+</style>
 <div class="container-fluid parallax-window" id="parallax" data-parallax="scroll" data-image-src="../img/imgslider2.jpg" style="
     height: 50em;
     background-position-y: center;
@@ -13,11 +16,11 @@
     padding-left: 0px;">
     </div>
     <div class="container">
-        <h1 class="my-4">{{ article.title }}
-        </h1>
+        <h3 class="my-4">{{ article.title }}
+        </h3>
         <div class="row">
           <div class="col-md-4">
-            <img class="img-fluid" src="{{ article.image }}" alt="" >
+            <img class="img-fluid" src="../img/{{ article.image }}" alt="" >
           </div>
           <div class="col-md-8">
            
@@ -34,7 +37,7 @@
                        <div class="clearfix"></div>
                         <p>{{comment.content}}</p>
                         {% if app.user %}
-                        <p><a class="btn btn-secondary" href="" role="button">supprimer</a></p>
+                        <p><a class="btn btn-secondary" href="{{ path('delete', {'id': comment.id})}}" role="button">supprimer</a></p>
                         {% endif %}
                     </div>
                 </div>
@@ -48,7 +51,7 @@
        {{ form_start(commentForm) }}
 
     {{ form_row(commentForm.author, {'attr' : {'placeholder': "Nom et Prenom"}}) }}
-    {{ form_row(commentForm.content, {'attr' : {'placeholder': "Voter message"}}) }}
+    {{ form_row(commentForm.content, {'attr' : {'placeholder': "Votre message"}}) }}
 
     <button type="submit" cless="btn btn-success">
     Enregistrer

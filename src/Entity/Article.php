@@ -33,7 +33,8 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Url()
+     *  * @Assert\NotBlank(message="Upload your image")
+ * @Assert\File(mimeTypes={ "image/png", "image/jpeg" })
      */
     private $image;
 
