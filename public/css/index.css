@@ -102,17 +102,7 @@ p {
   border:0px;
 }
 
-/* Medium devices (tablets, 768px and up) */
-@media (max-width: 900px) {
 
-	.carousel-caption {
-	margin-bottom: 8em; 
- margin-right: 0; 
-	 margin-left: 0;
-	 display: block !important;
-  }
-	
-}
 
 .profile-pic {
     width: 200px !important;
@@ -585,13 +575,19 @@ body.dark a {
 body.dark .btn-secondary {
 	color: black !important;
 }
-/* #Media
-================================================== */
-
-@media (max-width: 767px) { 
+@media only screen and (max-width: 480px) { 
 	h1{
 		font-size: 38px;
 	}
+	.paral {
+		height: 25em !important;
+	}
+	.carousel-caption {
+		margin-bottom: 12em!important;
+	 	margin-right: 0em !important;
+		 margin-left: 0em !important;
+		 display: block !important;
+	  }
 	.nav-item:after{
 		display: none;
 	}
@@ -605,6 +601,7 @@ body.dark .btn-secondary {
 		content: "";
 		border: none;
 		background-color: #000;
+		vertical-align: 0;
 	}
 	.dropdown-toggle::after {
 		position: absolute;
@@ -616,6 +613,7 @@ body.dark .btn-secondary {
 		content: "";
 		border: none;
 		background-color: #000;
+		vertical-align: 0;
 		transition: all 200ms linear;
 	}
 	.dropdown-toggle[aria-expanded="true"]::after{

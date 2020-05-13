@@ -2,17 +2,19 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>{% block title %}Pompe Funebres Le Souvenir{% endblock %}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
         <link rel="stylesheet" href="https://bootswatch.com/4/lumen/bootstrap.min.css">
         <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
-        <link rel="icon" sizes="32x32" href="img/OC1Y7T0test.png">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <link href="{{ asset('/css/index.css') }}" rel="stylesheet">
+        <link rel="icon" sizes="32x32" href="img/OC1Y7T0test.png">
         <meta name="description" content="Pompe Funebres Le Souvenir">
         <meta name="author" content="mr-reboot">
         <meta name="keywords" content="Le Souvenir, Pompe Funebres, site, ardennes, pompe funèbres dans les ardennes, marnes, reims, sedan, charlevilles, décès, Ardennes">
+         <link href="{{ asset('/css/index.css') }}" rel="stylesheet">
         {% block stylesheets %}{% endblock %}
     </head>
     <body class="dark">
@@ -25,7 +27,7 @@
 					
 						<a class="navbar-brand" href="/" style="color: white; font-family: 'Amazone BT', arial; font-size: 2em;">
                             <img src="../img/OC1Y7T0test.png" width="30" height="30" class="d-inline-block" alt="" style="filter: invert(1);">
-                             Le Souvenir <br> Pompe Funebres - Marbrerie </a>	
+                             Le Souvenir <br> Pompe Funebres</a>	
 						
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
@@ -75,8 +77,9 @@
             <p class="m-0 text-center text-white">Réalisation MR-REBOOT | © POMPES FUNÈBRES LE SOUVENIR 2020</p>
         </div>
     </footer>
-   <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+   <script src="{{ asset('js/jquery.js') }}"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
     <script src="{{ asset('js/parallax.js') }}"></script>
@@ -161,6 +164,7 @@
       });
           </script>
               <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.0.2/dist/simpleParallax.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
       <script>var image = document.getElementsByClassName('thumbnail');
 new simpleParallax(image, {
 	delay: .6,
